@@ -48,107 +48,147 @@
         \begin{enumerate}
         	\item {
         	Diseña un Autómata de pila que acepte L.\\
-         El autómata es \[M = \langle Q , \Sigma, \Gamma , \delta, q_0 , Z_0,  F\rangle\]
+         	Primero hay que diseñar un autómata que acepte a $\{a^nb^mc^k\}$.
+         	Este sería 
+         	\[M_1 = \langle Q_1 , \Sigma, \Gamma_1 , \delta_1a, q_1 , Z_0,  F_1\rangle\]
          
-         Donde:
-         
-         \begin{itemize}
-         	\item {
-         		$Q = \{q_0, q_1, q_2, q_3, q_4\}$
-         	}
-         	\item {
-         		$\Sigma = \{a, b,c\}$
-         	}
-         	\item {
-         		$\Gamma = \{Z_0, A, B, C\}$
-         	}
-         	
-         	
-         	\item {
-         	        		
-				\begin{align*}
-         			&\delta (q_0, a , Z_0) = \{(q_0, AZ_0)\}
-         			&\delta (q_0, a , A) = \{(q_0, AA)\}\\ 
-                    &\delta (q_0, b , Z_0) = \{(q_4, \epsilon)\} 
-                    &\delta (q_0, b , A) = \{(q_1, \epsilon), (q_2, BA)\} \\
-                    &\delta (q_0, c, Z_0) = \{(q_4, \epsilon)\}
-					&\delta (q_0, c, A) = \{(q_4, \epsilon)\}\\
-					&\delta (q_0, \epsilon , A) = \{(q_4, \epsilon)\}
-         			&\delta (q_1, b , A) = \{(q_1, \epsilon)\} \\
-         			&\delta (q_1, c , A) = \{(q_4, \epsilon)\}
-         			&\delta (q_1, b , Z_0) = \{(q_4, \epsilon)\} \\
-         			&\delta (q_2, b , B) = \{(q_2, BB)\}
-					&\delta (q_2, c , B) = \{(q_3, \epsilon)\} \\
-					&\delta (q_2, \epsilon, A) = \{(q_4, \epsilon)\}
-					&\delta (q_2, \epsilon, B) = \{(q_4, \epsilon)\} \\
-                    &\delta (q_3, c , B) = \{(q_3, \epsilon)\}
-                    &\delta (q_3, c , A) = \{(q_4, \epsilon)\} \\
-                    &\delta (q_3, c , Z_0) = \{(q_4, \epsilon)\}
-                    &\delta (q_3, \epsilon , A) = \{(q_4, \epsilon)\} \\
-         		\end{align*}
-			 }
-			 
-			 \item {
-         	        		
-				\begin{align*}
-					&\delta (q_0, a, Z_0) = (q_0, AZ_0)
-					&\delta (q_0, a, A) = (q_0, AA) \\
-					&\delta (q_0, b, Z_0) = (q_3, \epsilon)
-					&\delta (q_0, b, A) = (q_1, \epsilon) \\
-					&\delta (q_0, c, A) = (q_4, \epsilon)
-					&\delta (q_0, \epsilon, A) = (q_2, \epsilon) \\
-					&\delta (q_1, b, A) = (q_1, \epsilon)
-					&\delta (q_1, b, Z_0) = (q_3, \epsilon) \\
-					&\delta (q_1, c, A) = (q_4, \epsilon)
-					&\delta (q_1, \epsilon, A) = (q_2, \epsilon) \\
-					&\delta (q_3, b, \epsilon) = (q_3, \epsilon)
-					&\delta (q_3, b, Z_0) = (q_3, \epsilon) \\
-					&\delta (q_3, b, A) = (q_3, \epsilon)
-					&\delta (q_3, c, \epsilon) = (q_4, \epsilon) \\
-					&\delta (q_3, c, Z_0) = (q_4, \epsilon)
-					&\delta (q_3, c, A) = (q_4, \epsilon)
-					&\delta (q_4, c, \epsilon) = (q_4, \epsilon) \\
-					&\delta (q_4, c, Z_0) = (q_4, \epsilon)
-					&\delta (q_4, c, A) = (q_4, \epsilon)
-         		\end{align*}
-			 }
-			 
-			\item {
-				\begin{align*}
-					&\delta (q_0, a, Z_0) = (q_0, Z_0)
-					&\delta (q_0, b, Z_0) = (q_0, BZ_0) \\
-					&\delta (q_0, b, B) = (q_0, BB)
-					&\delta (q_0, c, Z_0) = (q_4, \epsilon) \\
-					&\delta (q_0, c, B) = (q_1, \epsilon)
-					&\delta (q_0, \epsilon, B) = (q_2, \epsilon) \\
-					&\delta (q_1, c, B) = (q_1, \epsilon)
-					&\delta (q_1, c, Z_0) = (q_4, \epsilon) \\
-					&\delta (q_1, \epsilon, B) = (q_2, \epsilon)
-					&\delta (q_4, c, \epsilon) = (q_4, \epsilon) \\
-					&\delta (q_4, c, Z_0) = (q_4, \epsilon)
-					&\delta (q_4, c, B) = (q_4, \epsilon)
-				\end{align*}
-			}
-         	
-         	\item {
-         		$q_0$ es el estado inicial.
-         	}
-         	\item {
-         		$Z_0$ es el símbolo al fondo de la pila.
-         	}
-         	\item {
-         		$F = \{q_3\}$
-         	}
-         \end{itemize}
-            
-            
-        	}
+	         Donde:
+	         
+	         \begin{itemize}
+	         	\item {
+	         		$Q_1 = \{q_1, q_2, q_3, q_4, q_5\}$
+	         	}
+	         	\item {
+	         		$\Sigma = \{a, b,c\}$
+	         	}
+	         	\item {
+	         		$\Gamma_1 = \{Z_0, A\}$
+	         	}
+	         	        					 
+				\item {     		
+					\begin{align*}
+						&\delta (q_1, a, Z_0) = (q_1, AZ_0)
+						&\delta (q_1, a, A) = (q_1, AA) \\
+						&\delta (q_1, b, Z_0) = (q_4, \epsilon)
+						&\delta (q_1, b, A) = (q_2, \epsilon) \\
+						&\delta (q_1, c, A) = (q_5, \epsilon)
+						&\delta (q_1, \epsilon, A) = (q_3, \epsilon) \\
+						&\delta (q_2, b, A) = (q_2, \epsilon)
+						&\delta (q_2, b, Z_0) = (q_4, \epsilon) \\
+						&\delta (q_2, c, A) = (q_5, \epsilon)
+						&\delta (q_2, \epsilon, A) = (q_3, \epsilon) \\
+						&\delta (q_4, b, Z_0) = (q_4, Z_0)
+						&\delta (q_4, b, A) = (q_4, \epsilon) \\
+						&\delta (q_4, c, Z_0) = (q_5, Z_0)
+						&\delta (q_4, c, A) = (q_5, \epsilon) \\
+						&\delta (q_5, c, Z_0) = (q_5, Z_0)
+						&\delta (q_5, c, A) = (q_5, \epsilon)
+	         		\end{align*}
+				}
+				 
+	         	
+	         	\item {
+	         		$q_1$ es el estado inicial.
+	         	}
+	         	\item {
+	         		$Z_0$ es el símbolo al fondo de la pila.
+	         	}
+	         	\item {
+	         		$F_1 = \{q_3, q_4, q_5\}$
+	         	}
+	         \end{itemize}
+	     
+	     	Luego, hay que hacer otro autómata 
+	     	\[M_2 = \langle Q_2 , \Sigma, \Gamma_2 , \delta_2, q_6 , Z_0,
+	     	F_2\rangle\]
+	     	Para reconocer $\{a^nb^mc^k | m \neq k\}$
+	     	Dado por 
+	     	\begin{itemize}
+	     		\item {
+	     			$Q_2 = \{q_6, q_7, q_8, q_9\}$
+     			}
+     		
+     			\item {
+     				$\Sigma = \{a, b, c\}$
+     			}
+     			\item {
+     				$\Gamma_2 = \{B, Z_0\}$
+     			}
+	     		\item {
+	     			\begin{align*}
+	     			&\delta (q_6, a, Z_0) = (q_6, Z_0)
+	     			&\delta (q_6, b, Z_0) = (q_6, BZ_0) \\
+	     			&\delta (q_6, b, B) = (q_6, BB)
+	     			&\delta (q_6, c, Z_0) = (q_8, \epsilon) \\
+	     			&\delta (q_6, c, B) = (q_7, \epsilon)
+	     			&\delta (q_6, \epsilon, B) = (q_8, \epsilon) \\
+	     			&\delta (q_7, c, B) = (q_7, \epsilon)
+	     			&\delta (q_7, c, Z_0) = (q_9, \epsilon) \\
+	     			&\delta (q_7, \epsilon, B) = (q_2, \epsilon)
+	     			&\delta (q_9, c, Z_0) = (q_9, Z_0)
+	     			&\delta (q_9, c, B) = (q_9, \epsilon)
+	     			\end{align*}
+	     		}
+	     		\item {
+	     			$q_6$ es el estado inicial.
+	     		}
+	     		\item {
+	     			$Z_0$ es el símbolo al fondo de la pila.
+	     		}
+	     		\item {
+	     			$F_2 = \{q_8, q_9\}$
+	     		}
+	     	\end{itemize}
+	            
+	        Entonces el autómata 
+	        \[M = \langle Q , \Sigma, \Gamma , \delta, q_0 , Z_0,
+	        F\rangle\]
+	        Que acepta al lenguaje deseado está dado por
+	        
+	        \begin{itemize}
+	        	\item {
+	        		$Q = \{q_0\} \cup Q_1 \cup Q_2$
+	        	}
+	        	
+	        	\item {
+	        		$\Sigma = \{a, b, c\}$
+	        	}
+	        	\item {
+	        		$\Gamma = \{A, B, Z_0\}$
+	        	}
+	        	\item {
+	        		\begin{align*}
+	        		&\delta (q_0, \epsilon, Z_0) = \{(q_1, Z_0),
+	        		(q_6, Z_0)\}\\
+	        		&\delta (p, s, \gamma) = \delta_1 (p, s, \gamma) \cup
+	        		\delta_2 (p, s, \gamma) 		
+	        		\end{align*}
+	        		Donde $p$ es cualquier estado que no sea $q_0$, $s$ un símbolo de $\Sigma$	y $\gamma$ cualquier símbolo de $\Gamma$.
+	        	}
+	        	\item {
+	        		$q_0$ es el estado inicial.
+	        	}
+	        	\item {
+	        		$Z_0$ es el símbolo al fondo de la pila.
+	        	}
+	        	\item {
+	        		$F = F_1 \cup F_2$
+	        	}
+	        \end{itemize}
+	        }
         	\item{
             Construye un autómata de pila que acepte el lenguaje, a partir del
             AP del inciso anterior. Usando los algoritmos vistos en clase para
             cambiar el criterio de aceptación del autómata.\\
-            
-        	}
+            El autómata resultante sería 
+            \[M' = \langle Q \cup \{p_0, p\} , \Sigma, \Gamma \cup \{N_0\} , \delta', P_0 , N_0, \varnothing \rangle\]
+            Con $\delta'$ dada por
+            \begin{align*}
+            	&\delta(p_0, \epsilon, N_0) = \{q_0, Z_0N_0\}\\
+            	&(p,s) \in \delta(q_f, \epsilon, s), \text{ para todo } q_f \in F, s \in F \cup \{N_0\}\\
+            	&\delta(p, \epsilon, s) = \{(p,\epsilon)\}
+            \end{align*}
+           }   	
         	\item{
         	Muestra la ejecución formal, en ambos autómatas, de las cadenas:
         	
