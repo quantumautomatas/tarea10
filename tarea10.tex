@@ -60,24 +60,28 @@
          		$\Sigma = \{a, b,c\}$
          	}
          	\item {
-         		$\Gamma = \{Z_0, A, B, C\}$\\
+         		$\Gamma = \{Z_0, A, B, C\}$
          	}
          	
          	
          	\item {
          	        		
         		\begin{align*}
-         			\delta (q_0, a , Z_0) &= \{(q_0, AZ_0)\}\\
-         			\delta (q_0, a , A) &= \{(q_0, AA)\}\\
-         			\delta (q_0, b , A) &= \{(q_1, \epsilon), (q_2, BA)\}\\
-         			\delta (q_1, b , A) &= \{(q_1, \epsilon)\}\\
-         			\delta (q_1, c , A) &= \{(q_4, \epsilon)\}\\
-         			\delta (q_1, b , Z_0) &= \{(q_4, \epsilon)\}\\
-         			\delta (q_2, b , B) &= \{(q_2, BB)\}\\
-         			\delta (q_2, c , B) &= \{(q_3, \epsilon)\}\\
-         			\delta (q_3, c , B) &= \{(q_3, \epsilon)\}\\
-         			\delta (q_3, c , A) &= \{(q_4, \epsilon)\}\\
-         			\delta (q_3, \epsilon , B) &= \{(q_4, \epsilon)\}\\
+         			&\delta (q_0, a , Z_0) = \{(q_0, AZ_0)\}
+         			&\delta (q_0, a , A) = \{(q_0, AA)\}\\ 
+                    &\delta (q_0, b , Z_0) = \{(q_4, \epsilon)\} 
+                    &\delta (q_0, b , A) = \{(q_1, \epsilon), (q_2, BA)\} \\
+                    &\delta (q_0, c, Z_0) = \{(q_4, \epsilon)\}
+                    &\delta (q_0, c, A) = \{(q_4, \epsilon)\}\\
+         			&\delta (q_1, b , A) = \{(q_1, \epsilon)\}
+         			&\delta (q_1, c , A) = \{(q_4, \epsilon)\}\\
+         			&\delta (q_1, b , Z_0) = \{(q_4, \epsilon)\}
+         			&\delta (q_2, b , B) = \{(q_2, BB)\}\\
+         			&\delta (q_2, c , B) = \{(q_3, \epsilon)\}
+                    &\delta (q_3, c , B) = \{(q_3, \epsilon)\}\\
+                    &\delta (q_3, c , A) = \{(q_4, \epsilon)\}
+                    &\delta (q_3, c , Z_0) = \{(q_4, \epsilon)\}
+                    &\delta (q_3, \epsilon , A) = \{(q_4, \epsilon)\}
          		\end{align*}
          	}
          	
@@ -88,7 +92,7 @@
          		$Z_0$ es el símbolo al fondo de la pila.
          	}
          	\item {
-         		$F = q_4$
+         		$F = \{q_3\}$
          	}
          \end{itemize}
             
