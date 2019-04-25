@@ -66,24 +66,66 @@
          	
          	\item {
          	        		
-        		\begin{align*}
+				\begin{align*}
          			&\delta (q_0, a , Z_0) = \{(q_0, AZ_0)\}
          			&\delta (q_0, a , A) = \{(q_0, AA)\}\\ 
                     &\delta (q_0, b , Z_0) = \{(q_4, \epsilon)\} 
                     &\delta (q_0, b , A) = \{(q_1, \epsilon), (q_2, BA)\} \\
                     &\delta (q_0, c, Z_0) = \{(q_4, \epsilon)\}
-                    &\delta (q_0, c, A) = \{(q_4, \epsilon)\}\\
-         			&\delta (q_1, b , A) = \{(q_1, \epsilon)\}
-         			&\delta (q_1, c , A) = \{(q_4, \epsilon)\}\\
-         			&\delta (q_1, b , Z_0) = \{(q_4, \epsilon)\}
-         			&\delta (q_2, b , B) = \{(q_2, BB)\}\\
-         			&\delta (q_2, c , B) = \{(q_3, \epsilon)\}
-                    &\delta (q_3, c , B) = \{(q_3, \epsilon)\}\\
-                    &\delta (q_3, c , A) = \{(q_4, \epsilon)\}
+					&\delta (q_0, c, A) = \{(q_4, \epsilon)\}\\
+					&\delta (q_0, \epsilon , A) = \{(q_4, \epsilon)\}
+         			&\delta (q_1, b , A) = \{(q_1, \epsilon)\} \\
+         			&\delta (q_1, c , A) = \{(q_4, \epsilon)\}
+         			&\delta (q_1, b , Z_0) = \{(q_4, \epsilon)\} \\
+         			&\delta (q_2, b , B) = \{(q_2, BB)\}
+					&\delta (q_2, c , B) = \{(q_3, \epsilon)\} \\
+					&\delta (q_2, \epsilon, A) = \{(q_4, \epsilon)\}
+					&\delta (q_2, \epsilon, B) = \{(q_4, \epsilon)\} \\
+                    &\delta (q_3, c , B) = \{(q_3, \epsilon)\}
+                    &\delta (q_3, c , A) = \{(q_4, \epsilon)\} \\
                     &\delta (q_3, c , Z_0) = \{(q_4, \epsilon)\}
-                    &\delta (q_3, \epsilon , A) = \{(q_4, \epsilon)\}
+                    &\delta (q_3, \epsilon , A) = \{(q_4, \epsilon)\} \\
          		\end{align*}
-         	}
+			 }
+			 
+			 \item {
+         	        		
+				\begin{align*}
+					&\delta (q_0, a, Z_0) = (q_0, AZ_0)
+					&\delta (q_0, a, A) = (q_0, AA) \\
+					&\delta (q_0, b, Z_0) = (q_3, \epsilon)
+					&\delta (q_0, b, A) = (q_1, \epsilon) \\
+					&\delta (q_0, c, A) = (q_4, \epsilon)
+					&\delta (q_0, \epsilon, A) = (q_2, \epsilon) \\
+					&\delta (q_1, b, A) = (q_1, \epsilon)
+					&\delta (q_1, b, Z_0) = (q_3, \epsilon) \\
+					&\delta (q_1, c, A) = (q_4, \epsilon)
+					&\delta (q_1, \epsilon, A) = (q_2, \epsilon) \\
+					&\delta (q_3, b, \epsilon) = (q_3, \epsilon)
+					&\delta (q_3, b, Z_0) = (q_3, \epsilon) \\
+					&\delta (q_3, b, A) = (q_3, \epsilon)
+					&\delta (q_4, c, \epsilon) = (q_4, \epsilon) \\
+					&\delta (q_4, c, Z_0) = (q_4, \epsilon)
+					&\delta (q_4, c, A) = (q_4, \epsilon)
+         		\end{align*}
+			 }
+			 
+			\item {
+				\begin{align*}
+					&\delta (q_0, a, Z_0) = (q_0, Z_0)
+					&\delta (q_0, b, Z_0) = (q_0, BZ_0) \\
+					&\delta (q_0, b, B) = (q_0, BB)
+					&\delta (q_0, c, Z_0) = (q_4, \epsilon) \\
+					&\delta (q_0, c, B) = (q_1, \epsilon)
+					&\delta (q_0, \epsilon, B) = (q_2, \epsilon) \\
+					&\delta (q_1, c, B) = (q_1, \epsilon)
+					&\delta (q_1, c, Z_0) = (q_4, \epsilon) \\
+					&\delta (q_1, \epsilon, B) = (q_2, \epsilon)
+					&\delta (q_4, c, \epsilon) = (q_4, \epsilon) \\
+					&\delta (q_4, c, Z_0) = (q_4, \epsilon)
+					&\delta (q_4, c, B) = (q_4, \epsilon)
+				\end{align*}
+			}
          	
          	\item {
          		$q_0$ es el estado inicial.
