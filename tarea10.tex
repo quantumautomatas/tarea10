@@ -32,7 +32,7 @@
     }
 
     \date{
-        25 de abril del 2019
+        26 de abril del 2019
     }
     
     \maketitle
@@ -198,14 +198,56 @@
         	\item{
         	Muestra la ejecución formal, en ambos autómatas, de las cadenas:
         	
+        	Ejecución formal en el autómata que acepta por estado final:\\
         	\begin{itemize}
         		\item {
         		aabbccc\\
+        		$\langle q_0, aabbccc, Z_0 \rangle \vdash$ como el autómata es no determinista, hay dos opciones para esta transición, desarrollaremos ambas:\\
         		
+        		\begin{itemize}
+        			\item {
+        			$\langle q_1, aabbccc, Z_0 \rangle \vdash \langle q_1, abbccc, AZ_0 \rangle \vdash \langle q_1, bbccc, AAZ_0 \rangle \vdash  \langle q_2, bccc, AZ_0 \rangle$ 
+        			}
+        			\item {
+        			$\vdash \langle q_2, ccc, \epsilon Z_0 \rangle$  NO ACEPTA\\
+        			}
+        		\end{itemize}
+        	
+        		\begin{itemize}
+        			\item {
+        				$\langle q_6, aabbccc, Z_0 \rangle \vdash \langle q_6, abbccc, Z_0 \rangle \vdash \langle q_6, bbccc, Z_0 \rangle \vdash  \langle q_6, bccc, BZ_0 \rangle \vdash  \langle q_6, ccc, BBZ_0 \rangle \vdash \langle q_7, cc, BZ_0 \rangle \vdash \langle q_7, c, Z_0 \rangle$ 
+        			}
+        			\item {
+        			$\vdash \langle q_9, \epsilon, \epsilon Z_0 \rangle$ ACEPTA porque $q_9 \in F$\\
+        			}
+        		
+        			Como un cómputo acepto la cadena, entonces el autómata la acepta.\\
+        		\end{itemize}
         		
         		}
         		\item {
         		aabbcc\\
+        		
+        		$\langle q_0, aabbcc, Z_0 \rangle \vdash$ como el autómata es no determinista, hay dos opciones para esta transición, desarrollaremos ambas:\\
+        		
+        		\begin{itemize}
+        			\item {
+        				$\langle q_1, aabbcc, Z_0 \rangle \vdash \langle q_1, abbcc, AZ_0 \rangle \vdash \langle q_1, bbcc, AAZ_0 \rangle \vdash \langle q_2, bcc, AZ_0 \rangle $ 
+        			}
+        			\item {
+        				$\vdash \langle q_2, cc, Z_0 \rangle$  NO ACEPTA\\
+        			}
+        		\end{itemize}
+        		
+        		\begin{itemize}
+        		\item {
+        			$\langle q_6, aabbcc, Z_0 \rangle \vdash \langle q_6, abbcc, Z_0 \rangle \vdash \langle q_6, bbcc, Z_0 \rangle \vdash  \langle q_6, bccc, BZ_0 \rangle \vdash  \langle q_6, cc, BBZ_0 \rangle \vdash \langle q_7, c, BZ_0 \rangle$ 
+        		}
+        		\item {
+        			$\vdash \langle q_7, \epsilon, Z_0 \rangle$ NO ACEPTA\\
+        		}
+        		\end{itemize}
+        		Como ningún cómputo acepto la cadena, entonces el autómata la rechaza.\\
         		
         		}
         	\end{itemize}
