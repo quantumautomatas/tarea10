@@ -125,7 +125,7 @@
 	     			&\delta (q_7, c, B) = (q_7, \epsilon)
 	     			&\delta (q_7, c, Z_0) = (q_9, \epsilon) \\
 	     			&\delta (q_7, \epsilon, B) = (q_2, \epsilon)
-	     			&\delta (q_9, c, Z_0) = (q_9, Z_0)
+	     			&\delta (q_9, c, Z_0) = (q_9, Z_0) \\
 	     			&\delta (q_9, c, B) = (q_9, \epsilon)
 	     			\end{align*}
 	     		}
@@ -158,12 +158,13 @@
 	        	}
 	        	\item {
 	        		\begin{align*}
-	        		&\delta (q_0, \epsilon, Z_0) = \{(q_1, Z_0),
-	        		(q_6, Z_0)\}\\
-	        		&\delta (p, s, \gamma) = \delta_1 (p, s, \gamma) \cup
-	        		\delta_2 (p, s, \gamma) 		
-	        		\end{align*}
-	        		Donde $p$ es cualquier estado que no sea $q_0$, $s$ un símbolo de $\Sigma$	y $\gamma$ cualquier símbolo de $\Gamma$.
+						\delta (q_0, \epsilon, Z_0) &= \{(q_0, Z_0), (q_6, Z_0)\} \\
+						\delta (p, s, \gamma) &= 
+						\begin{cases}
+							&\delta_1(p, s, \gamma) \text{ si } p \in Q_1 \\
+							&\delta_2(p, s, \gamma) \text{ si } p \in Q_2 \\
+						\end{cases}
+					\end{align*}
 	        	}
 	        	\item {
 	        		$q_0$ es el estado inicial.
@@ -182,12 +183,17 @@
             cambiar el criterio de aceptación del autómata.\\
             El autómata resultante sería 
             \[M' = \langle Q \cup \{p_0, p\} , \Sigma, \Gamma \cup \{N_0\} , \delta', P_0 , N_0, \varnothing \rangle\]
-            Con $\delta'$ dada por
+            Con $\delta'$ igual a $\delta$, excepto por estas transiciones nuevas
             \begin{align*}
-            	&\delta(p_0, \epsilon, N_0) = \{q_0, Z_0N_0\}\\
-            	&(p,s) \in \delta(q_f, \epsilon, s), \text{ para todo } q_f \in F, s \in F \cup \{N_0\}\\
+            	&\delta(p_0, \epsilon, N_0) = \{(q_0, Z_0N_0)\}\\
+				&\delta(q_3, \epsilon, s) = \{(p, s)\} \\
+				&\delta(q_4, \epsilon, s) = \{(p, s)\} \\
+				&\delta(q_5, \epsilon, s) = \{(p, s)\} \\
+				&\delta(q_8, \epsilon, s) = \{(p, s)\} \\
+				&\delta(q_9, \epsilon, s) = \{(p, s)\} \\
             	&\delta(p, \epsilon, s) = \{(p,\epsilon)\}
-            \end{align*}
+			\end{align*}
+			Donde $s\in \Gamma \cup \{N_0\}$ es arbitrario.
            }   	
         	\item{
         	Muestra la ejecución formal, en ambos autómatas, de las cadenas:
