@@ -39,7 +39,7 @@
 
     \begin{enumerate}
         \item {
-        Dado el lenguaje L definido como sigue:\\
+        Dado el lenguaje L definido como sigue:
         \begin{equation*}
         	L = \{a^nb^mc^k | m \neq n \ o \   m \neq k \}
         \end{equation*}
@@ -198,62 +198,133 @@
         	\item{
         	Muestra la ejecución formal, en ambos autómatas, de las cadenas:
         	
-        	Ejecución formal en el autómata que acepta por estado final:\\
+        	Ejecución formal en el autómata que acepta por estado final:
         	\begin{itemize}
         		\item {
         		aabbccc\\
-        		$\langle q_0, aabbccc, Z_0 \rangle \vdash$ como el autómata es no determinista, hay dos opciones para esta transición, desarrollaremos ambas:\\
+				$\langle q_0, aabbccc, Z_0 \rangle \vdash$ como el autómata es 
+				no determinista, hay dos opciones para esta transición, 
+				desarrollaremos ambas:
         		
-        		\begin{itemize}
-        			\item {
-        			$\langle q_1, aabbccc, Z_0 \rangle \vdash \langle q_1, abbccc, AZ_0 \rangle \vdash \langle q_1, bbccc, AAZ_0 \rangle \vdash  \langle q_2, bccc, AZ_0 \rangle$ 
-        			}
-        			\item {
-        			$\vdash \langle q_2, ccc, \epsilon Z_0 \rangle$  NO ACEPTA\\
-        			}
-        		\end{itemize}
+        		\[
+					\langle q_1, aabbccc, Z_0 \rangle \vdash 
+					\langle q_1, abbccc, AZ_0 \rangle \vdash 
+					\langle q_1, bbccc, AAZ_0 \rangle \vdash  
+					\langle q_2, bccc, AZ_0 \rangle \vdash 
+					\langle q_2, ccc, \epsilon Z_0 \rangle
+				\]
+				Por lo que no acepta.
         	
-        		\begin{itemize}
-        			\item {
-        				$\langle q_6, aabbccc, Z_0 \rangle \vdash \langle q_6, abbccc, Z_0 \rangle \vdash \langle q_6, bbccc, Z_0 \rangle \vdash  \langle q_6, bccc, BZ_0 \rangle \vdash  \langle q_6, ccc, BBZ_0 \rangle \vdash \langle q_7, cc, BZ_0 \rangle \vdash \langle q_7, c, Z_0 \rangle$ 
-        			}
-        			\item {
-        			$\vdash \langle q_9, \epsilon, \epsilon Z_0 \rangle$ ACEPTA porque $q_9 \in F$\\
-        			}
-        		
-        			Como un cómputo acepto la cadena, entonces el autómata la acepta.\\
-        		\end{itemize}
-        		
+        		\begin{align*}
+					&\langle q_6, aabbccc, Z_0 \rangle \vdash
+					\langle q_6, abbccc, Z_0 \rangle \vdash
+					\langle q_6, bbccc, Z_0 \rangle \vdash
+					\langle q_6, bccc, BZ_0 \rangle \vdash
+					\langle q_6, ccc, BBZ_0 \rangle \vdash \\
+					&\langle q_7, cc, BZ_0 \rangle \vdash
+					\langle q_7, c, Z_0 \rangle \vdash
+					\langle q_9, \epsilon, \epsilon Z_0 \rangle
+				\end{align*}
+				Y como $q_9 \in F$, entonces sí acepta.
+        		Como un cómputo acepto la cadena, entonces el autómata la acepta.
         		}
         		\item {
-        		aabbcc\\
+        		aabbcc \\
+				$\langle q_0, aabbcc, Z_0 \rangle \vdash$ como el autómata es no
+				determinista, hay dos opciones para esta transición
+				desarrollaremos ambas:
+
+				\begin{align*}
+					\langle q_1, aabbcc, Z_0 \rangle \vdash 
+					\langle q_1, abbcc, AZ_0 \rangle \vdash 
+					\langle q_1, bbcc, AAZ_0 \rangle \vdash 
+					\langle q_2, bcc, AZ_0 \rangle \vdash 
+					\langle q_2, cc, Z_0 \rangle
+				\end{align*}
+				Por lo que no acepta, pues $q_2 \not \in F$
+        		\begin{align*}
+					&\langle q_6, aabbcc, Z_0 \rangle \vdash 
+					\langle q_6, abbcc, Z_0 \rangle \vdash 
+					\langle q_6, bbcc, Z_0 \rangle \vdash 
+					\langle q_6, bccc, BZ_0 \rangle \vdash 
+					\langle q_6, cc, BBZ_0 \rangle \vdash \\
+					&\langle q_7, c, BZ_0 \rangle \vdash 
+					\langle q_7, \epsilon, Z_0 \rangle
+				\end{align*}
+				Por lo que no acepta, pues $q_7 \not \in F$
         		
-        		$\langle q_0, aabbcc, Z_0 \rangle \vdash$ como el autómata es no determinista, hay dos opciones para esta transición, desarrollaremos ambas:\\
-        		
-        		\begin{itemize}
-        			\item {
-        				$\langle q_1, aabbcc, Z_0 \rangle \vdash \langle q_1, abbcc, AZ_0 \rangle \vdash \langle q_1, bbcc, AAZ_0 \rangle \vdash \langle q_2, bcc, AZ_0 \rangle $ 
-        			}
-        			\item {
-        				$\vdash \langle q_2, cc, Z_0 \rangle$  NO ACEPTA\\
-        			}
-        		\end{itemize}
-        		
-        		\begin{itemize}
+        		Como ningún cómputo acepto la cadena, entonces el autómata la rechaza.
+        		}
+			\end{itemize}
+			
+			Ejecución formal en el autómata que acepta por pila vacía:
+        	\begin{itemize}
         		\item {
-        			$\langle q_6, aabbcc, Z_0 \rangle \vdash \langle q_6, abbcc, Z_0 \rangle \vdash \langle q_6, bbcc, Z_0 \rangle \vdash  \langle q_6, bccc, BZ_0 \rangle \vdash  \langle q_6, cc, BBZ_0 \rangle \vdash \langle q_7, c, BZ_0 \rangle$ 
+				aabbccc
+				
+				$\langle p_0, aabbccc, N_0 \rangle \vdash \langle q_0, aabbccc, 
+				Z_0N_0 \rangle \vdash$
+				como el autómata es no determinista, hay dos opciones para esta transición, 
+				desarrollaremos ambas:
+        		
+        		\[
+					\langle q_1, aabbccc, Z_0N_0 \rangle \vdash 
+					\langle q_1, abbccc, AZ_0N_0 \rangle \vdash 
+					\langle q_1, bbccc, AAZ_0N_0 \rangle \vdash  
+					\langle q_2, bccc, AZ_0N_0 \rangle \vdash 
+					\langle q_2, ccc, Z_0N_0 \rangle
+				\]
+				De donde ya no hay transiciones pero no se ha acabado de
+				procesar la cadena, por lo que no acepta.\\
+				Por otra parte.
+        		\begin{align*}
+					&\langle q_6, aabbccc, Z_0N_0 \rangle \vdash
+					\langle q_6, abbccc, Z_0N_0 \rangle \vdash
+					\langle q_6, bbccc, Z_0N_0 \rangle \vdash
+					\langle q_6, bccc, BZ_0N_0 \rangle \vdash
+					\langle q_6, ccc, BBZ_0N_0 \rangle \vdash \\
+					&\langle q_7, cc, BZ_0N_0 \rangle \vdash
+					\langle q_7, c, Z_0N_0 \rangle \vdash
+					\langle q_9, \epsilon, Z_0N_0 \rangle \vdash
+					\langle p, \epsilon, Z_0N_0 \rangle \vdash
+					\langle q_9, \epsilon, N_0 \rangle \vdash
+					\langle q_9, \epsilon, \epsilon \rangle
+				\end{align*}
+				Y como vacía la pila, entonces sí acepta.
+        		Como un cómputo acepto la cadena, entonces el autómata la acepta.
         		}
         		\item {
-        			$\vdash \langle q_7, \epsilon, Z_0 \rangle$ NO ACEPTA\\
-        		}
-        		\end{itemize}
-        		Como ningún cómputo acepto la cadena, entonces el autómata la rechaza.\\
+        		aabbcc \\
+				$\langle p_0, aabbccc, N_0 \rangle \vdash \langle q_0, aabbcc, 
+				Z_0N_0 \rangle \vdash$ como el autómata es no
+				determinista, hay dos opciones para esta transición
+				desarrollaremos ambas:
+
+				\begin{align*}
+					\langle q_1, aabbcc, Z_0N_0 \rangle \vdash 
+					\langle q_1, abbcc, AZ_0N_0 \rangle \vdash 
+					\langle q_1, bbcc, AAZ_0N_0 \rangle \vdash 
+					\langle q_2, bcc, AZ_0N_0 \rangle \vdash 
+					\langle q_2, cc, Z_0N_0 \rangle
+				\end{align*}
+				Por lo que no acepta, pues no vacía la pila.
+
+				Por otra parte.
+        		\begin{align*}
+					&\langle q_6, aabbcc, Z_0N_0 \rangle \vdash 
+					\langle q_6, abbcc, Z_0N_0 \rangle \vdash 
+					\langle q_6, bbcc, Z_0N_0 \rangle \vdash 
+					\langle q_6, bccc, BZ_0N_0 \rangle \vdash 
+					\langle q_6, cc, BBZ_0N_0 \rangle \vdash \\
+					&\langle q_7, c, BZ_0N_0 \rangle \vdash 
+					\langle q_7, \epsilon, Z_0N_0 \rangle
+				\end{align*}
+				Por lo que no acepta, pues no vaía la pila.
         		
+        		Como ningún cómputo acepto la cadena, entonces el autómata la rechaza.
         		}
         	\end{itemize}
-        		
         	}
-        
         \end{enumerate}
     	}
     \end{enumerate}
