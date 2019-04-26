@@ -34,7 +34,7 @@
     \date{
         26 de abril del 2019
     }
-    
+
     \maketitle
 
     \begin{enumerate}
@@ -43,17 +43,17 @@
         \begin{equation*}
         	L = \{a^nb^mc^k | m \neq n \ o \   m \neq k \}
         \end{equation*}
-        
-        
+
+
         \begin{enumerate}
         	\item {
         	Diseña un Autómata de pila que acepte L.\\
          	Primero hay que diseñar un autómata que acepte a $\{a^nb^mc^k | m \neq n \}$.
-         	Este sería 
-         	\[M_1 = \langle Q_1 , \Sigma, \Gamma_1 , \delta_1a, q_1 , Z_0,  F_1\rangle\]
-         
+         	Este sería
+         	\[M_1 = \langle Q_1 , \Sigma, \Gamma_1 , \delta_1, q_1 , Z_0,  F_1\rangle\]
+
 	         Donde:
-	         
+
 	         \begin{itemize}
 	         	\item {
 	         		$Q_1 = \{q_1, q_2, q_3, q_4, q_5\}$
@@ -64,29 +64,29 @@
 	         	\item {
 	         		$\Gamma_1 = \{Z_0, A\}$
 	         	}
-	         	        					 
-				\item {     		
+
+				\item {
 					\begin{align*}
-						&\delta (q_1, a, Z_0) = (q_1, AZ_0)
-						&\delta (q_1, a, A) = (q_1, AA) \\
-						&\delta (q_1, b, Z_0) = (q_4, \epsilon)
-						&\delta (q_1, b, A) = (q_2, \epsilon) \\
-						&\delta (q_1, c, A) = (q_5, \epsilon)
-						&\delta (q_1, \epsilon, A) = (q_3, \epsilon) \\
-						&\delta (q_2, b, A) = (q_2, \epsilon)
-						&\delta (q_2, b, Z_0) = (q_4, \epsilon) \\
-						&\delta (q_2, c, A) = (q_5, \epsilon)
-						&\delta (q_2, \epsilon, A) = (q_3, \epsilon) \\
-						&\delta (q_4, b, Z_0) = (q_4, Z_0)
-						&\delta (q_4, b, A) = (q_4, \epsilon) \\
-						&\delta (q_4, c, Z_0) = (q_5, Z_0)
-						&\delta (q_4, c, A) = (q_5, \epsilon) \\
-						&\delta (q_5, c, Z_0) = (q_5, Z_0)
-						&\delta (q_5, c, A) = (q_5, \epsilon)
+						&\delta_1 (q_1, a, Z_0) = (q_1, AZ_0)
+						&\delta_1 (q_1, a, A) = (q_1, AA) \\
+						&\delta_1 (q_1, b, Z_0) = (q_4, \epsilon)
+						&\delta_1 (q_1, b, A) = (q_2, \epsilon) \\
+						&\delta_1 (q_1, c, A) = (q_5, \epsilon)
+						&\delta_1 (q_1, \epsilon, A) = (q_3, \epsilon) \\
+						&\delta_1 (q_2, b, A) = (q_2, \epsilon)
+						&\delta_1 (q_2, b, Z_0) = (q_4, \epsilon) \\
+						&\delta_1 (q_2, c, A) = (q_5, \epsilon)
+						&\delta_1 (q_2, \epsilon, A) = (q_3, \epsilon) \\
+						&\delta_1 (q_4, b, Z_0) = (q_4, Z_0)
+						&\delta_1 (q_4, b, A) = (q_4, \epsilon) \\
+						&\delta_1 (q_4, c, Z_0) = (q_5, Z_0)
+						&\delta_1 (q_4, c, A) = (q_5, \epsilon) \\
+						&\delta_1 (q_5, c, Z_0) = (q_5, Z_0)
+						&\delta_1 (q_5, c, A) = (q_5, \epsilon)
 	         		\end{align*}
 				}
-				 
-	         	
+
+
 	         	\item {
 	         		$q_1$ es el estado inicial.
 	         	}
@@ -97,17 +97,17 @@
 	         		$F_1 = \{q_3, q_4, q_5\}$
 	         	}
 	         \end{itemize}
-	     
-	     	Luego, hay que hacer otro autómata 
+
+	     	Luego, hay que hacer otro autómata
 	     	\[M_2 = \langle Q_2 , \Sigma, \Gamma_2 , \delta_2, q_6 , Z_0,
 	     	F_2\rangle\]
 	     	Para reconocer $\{a^nb^mc^k | m \neq k\}$
-	     	Dado por 
+	     	Dado por
 	     	\begin{itemize}
 	     		\item {
 	     			$Q_2 = \{q_6, q_7, q_8, q_9\}$
      			}
-     		
+
      			\item {
      				$\Sigma = \{a, b, c\}$
      			}
@@ -116,17 +116,17 @@
      			}
 	     		\item {
 	     			\begin{align*}
-	     			&\delta (q_6, a, Z_0) = (q_6, Z_0)
-	     			&\delta (q_6, b, Z_0) = (q_6, BZ_0) \\
-	     			&\delta (q_6, b, B) = (q_6, BB)
-	     			&\delta (q_6, c, Z_0) = (q_8, \epsilon) \\
-	     			&\delta (q_6, c, B) = (q_7, \epsilon)
-	     			&\delta (q_6, \epsilon, B) = (q_8, \epsilon) \\
-	     			&\delta (q_7, c, B) = (q_7, \epsilon)
-	     			&\delta (q_7, c, Z_0) = (q_9, \epsilon) \\
-	     			&\delta (q_7, \epsilon, B) = (q_2, \epsilon)
-	     			&\delta (q_9, c, Z_0) = (q_9, Z_0) \\
-	     			&\delta (q_9, c, B) = (q_9, \epsilon)
+	     			&\delta_2 (q_6, a, Z_0) = (q_6, Z_0)
+	     			&\delta_2 (q_6, b, Z_0) = (q_6, BZ_0) \\
+	     			&\delta_2 (q_6, b, B) = (q_6, BB)
+	     			&\delta_2 (q_6, c, Z_0) = (q_8, \epsilon) \\
+	     			&\delta_2 (q_6, c, B) = (q_7, \epsilon)
+	     			&\delta_2 (q_6, \epsilon, B) = (q_8, \epsilon) \\
+	     			&\delta_2 (q_7, c, B) = (q_7, \epsilon)
+	     			&\delta_2 (q_7, c, Z_0) = (q_9, \epsilon) \\
+	     			&\delta_2 (q_7, \epsilon, B) = (q_2, \epsilon)
+	     			&\delta_2 (q_9, c, Z_0) = (q_9, Z_0) \\
+	     			&\delta_2 (q_9, c, B) = (q_9, \epsilon)
 	     			\end{align*}
 	     		}
 	     		\item {
@@ -139,17 +139,17 @@
 	     			$F_2 = \{q_8, q_9\}$
 	     		}
 	     	\end{itemize}
-	            
-	        Entonces el autómata 
+
+	        Entonces el autómata
 	        \[M = \langle Q , \Sigma, \Gamma , \delta, q_0 , Z_0,
 	        F\rangle\]
 	        Que acepta al lenguaje deseado está dado por
-	        
+
 	        \begin{itemize}
 	        	\item {
 	        		$Q = \{q_0\} \cup Q_1 \cup Q_2$
 	        	}
-	        	
+
 	        	\item {
 	        		$\Sigma = \{a, b, c\}$
 	        	}
@@ -159,7 +159,7 @@
 	        	\item {
 	        		\begin{align*}
 						\delta (q_0, \epsilon, Z_0) &= \{(q_0, Z_0), (q_6, Z_0)\} \\
-						\delta (p, s, \gamma) &= 
+						\delta (p, s, \gamma) &=
 						\begin{cases}
 							&\delta_1(p, s, \gamma) \text{ si } p \in Q_1 \\
 							&\delta_2(p, s, \gamma) \text{ si } p \in Q_2 \\
@@ -181,40 +181,40 @@
             Construye un autómata de pila que acepte el lenguaje, a partir del
             AP del inciso anterior. Usando los algoritmos vistos en clase para
             cambiar el criterio de aceptación del autómata.\\
-            El autómata resultante sería 
+            El autómata resultante sería
             \[M' = \langle Q \cup \{p_0, p\} , \Sigma, \Gamma \cup \{N_0\} , \delta', P_0 , N_0, \varnothing \rangle\]
             Con $\delta'$ igual a $\delta$, excepto por estas transiciones nuevas
             \begin{align*}
-            	&\delta(p_0, \epsilon, N_0) = \{(q_0, Z_0N_0)\}\\
-				&\delta(q_3, \epsilon, s) = \{(p, s)\} \\
-				&\delta(q_4, \epsilon, s) = \{(p, s)\} \\
-				&\delta(q_5, \epsilon, s) = \{(p, s)\} \\
-				&\delta(q_8, \epsilon, s) = \{(p, s)\} \\
-				&\delta(q_9, \epsilon, s) = \{(p, s)\} \\
-            	&\delta(p, \epsilon, s) = \{(p,\epsilon)\}
+            	&\delta'(p_0, \epsilon, N_0) = \{(q_0, Z_0N_0)\}\\
+				&\delta'(q_3, \epsilon, s) = \{(p, s)\} \\
+				&\delta'(q_4, \epsilon, s) = \{(p, s)\} \\
+				&\delta'(q_5, \epsilon, s) = \{(p, s)\} \\
+				&\delta'(q_8, \epsilon, s) = \{(p, s)\} \\
+				&\delta'(q_9, \epsilon, s) = \{(p, s)\} \\
+            	&\delta'(p, \epsilon, s) = \{(p,\epsilon)\}
 			\end{align*}
 			Donde $s\in \Gamma \cup \{N_0\}$ es arbitrario.
-           }   	
+           }
         	\item{
         	Muestra la ejecución formal, en ambos autómatas, de las cadenas:
-        	
+
         	Ejecución formal en el autómata que acepta por estado final:
         	\begin{itemize}
         		\item {
         		aabbccc\\
-				$\langle q_0, aabbccc, Z_0 \rangle \vdash$ como el autómata es 
-				no determinista, hay dos opciones para esta transición, 
+				$\langle q_0, aabbccc, Z_0 \rangle \vdash$ como el autómata es
+				no determinista, hay dos opciones para esta transición,
 				desarrollaremos ambas:
-        		
+
         		\[
-					\langle q_1, aabbccc, Z_0 \rangle \vdash 
-					\langle q_1, abbccc, AZ_0 \rangle \vdash 
-					\langle q_1, bbccc, AAZ_0 \rangle \vdash  
-					\langle q_2, bccc, AZ_0 \rangle \vdash 
+					\langle q_1, aabbccc, Z_0 \rangle \vdash
+					\langle q_1, abbccc, AZ_0 \rangle \vdash
+					\langle q_1, bbccc, AAZ_0 \rangle \vdash
+					\langle q_2, bccc, AZ_0 \rangle \vdash
 					\langle q_2, ccc, \epsilon Z_0 \rangle
 				\]
 				Por lo que no acepta.
-        	
+
         		\begin{align*}
 					&\langle q_6, aabbccc, Z_0 \rangle \vdash
 					\langle q_6, abbccc, Z_0 \rangle \vdash
@@ -235,43 +235,43 @@
 				desarrollaremos ambas:
 
 				\begin{align*}
-					\langle q_1, aabbcc, Z_0 \rangle \vdash 
-					\langle q_1, abbcc, AZ_0 \rangle \vdash 
-					\langle q_1, bbcc, AAZ_0 \rangle \vdash 
-					\langle q_2, bcc, AZ_0 \rangle \vdash 
+					\langle q_1, aabbcc, Z_0 \rangle \vdash
+					\langle q_1, abbcc, AZ_0 \rangle \vdash
+					\langle q_1, bbcc, AAZ_0 \rangle \vdash
+					\langle q_2, bcc, AZ_0 \rangle \vdash
 					\langle q_2, cc, Z_0 \rangle
 				\end{align*}
 				Por lo que no acepta, pues $q_2 \not \in F$
         		\begin{align*}
-					&\langle q_6, aabbcc, Z_0 \rangle \vdash 
-					\langle q_6, abbcc, Z_0 \rangle \vdash 
-					\langle q_6, bbcc, Z_0 \rangle \vdash 
-					\langle q_6, bccc, BZ_0 \rangle \vdash 
+					&\langle q_6, aabbcc, Z_0 \rangle \vdash
+					\langle q_6, abbcc, Z_0 \rangle \vdash
+					\langle q_6, bbcc, Z_0 \rangle \vdash
+					\langle q_6, bccc, BZ_0 \rangle \vdash
 					\langle q_6, cc, BBZ_0 \rangle \vdash \\
-					&\langle q_7, c, BZ_0 \rangle \vdash 
+					&\langle q_7, c, BZ_0 \rangle \vdash
 					\langle q_7, \epsilon, Z_0 \rangle
 				\end{align*}
 				Por lo que no acepta, pues $q_7 \not \in F$
-        		
+
         		Como ningún cómputo acepto la cadena, entonces el autómata la rechaza.
         		}
 			\end{itemize}
-			
+
 			Ejecución formal en el autómata que acepta por pila vacía:
         	\begin{itemize}
         		\item {
 				aabbccc
-				
-				$\langle p_0, aabbccc, N_0 \rangle \vdash \langle q_0, aabbccc, 
+
+				$\langle p_0, aabbccc, N_0 \rangle \vdash \langle q_0, aabbccc,
 				Z_0N_0 \rangle \vdash$
-				como el autómata es no determinista, hay dos opciones para esta transición, 
+				como el autómata es no determinista, hay dos opciones para esta transición,
 				desarrollaremos ambas:
-        		
+
         		\[
-					\langle q_1, aabbccc, Z_0N_0 \rangle \vdash 
-					\langle q_1, abbccc, AZ_0N_0 \rangle \vdash 
-					\langle q_1, bbccc, AAZ_0N_0 \rangle \vdash  
-					\langle q_2, bccc, AZ_0N_0 \rangle \vdash 
+					\langle q_1, aabbccc, Z_0N_0 \rangle \vdash
+					\langle q_1, abbccc, AZ_0N_0 \rangle \vdash
+					\langle q_1, bbccc, AAZ_0N_0 \rangle \vdash
+					\langle q_2, bccc, AZ_0N_0 \rangle \vdash
 					\langle q_2, ccc, Z_0N_0 \rangle
 				\]
 				De donde ya no hay transiciones pero no se ha acabado de
@@ -295,32 +295,32 @@
         		}
         		\item {
         		aabbcc \\
-				$\langle p_0, aabbccc, N_0 \rangle \vdash \langle q_0, aabbcc, 
+				$\langle p_0, aabbccc, N_0 \rangle \vdash \langle q_0, aabbcc,
 				Z_0N_0 \rangle \vdash$ como el autómata es no
 				determinista, hay dos opciones para esta transición
 				desarrollaremos ambas:
 
 				\begin{align*}
-					\langle q_1, aabbcc, Z_0N_0 \rangle \vdash 
-					\langle q_1, abbcc, AZ_0N_0 \rangle \vdash 
-					\langle q_1, bbcc, AAZ_0N_0 \rangle \vdash 
-					\langle q_2, bcc, AZ_0N_0 \rangle \vdash 
+					\langle q_1, aabbcc, Z_0N_0 \rangle \vdash
+					\langle q_1, abbcc, AZ_0N_0 \rangle \vdash
+					\langle q_1, bbcc, AAZ_0N_0 \rangle \vdash
+					\langle q_2, bcc, AZ_0N_0 \rangle \vdash
 					\langle q_2, cc, Z_0N_0 \rangle
 				\end{align*}
 				Por lo que no acepta, pues no vacía la pila.
 
 				Por otra parte.
         		\begin{align*}
-					&\langle q_6, aabbcc, Z_0N_0 \rangle \vdash 
-					\langle q_6, abbcc, Z_0N_0 \rangle \vdash 
-					\langle q_6, bbcc, Z_0N_0 \rangle \vdash 
-					\langle q_6, bccc, BZ_0N_0 \rangle \vdash 
+					&\langle q_6, aabbcc, Z_0N_0 \rangle \vdash
+					\langle q_6, abbcc, Z_0N_0 \rangle \vdash
+					\langle q_6, bbcc, Z_0N_0 \rangle \vdash
+					\langle q_6, bccc, BZ_0N_0 \rangle \vdash
 					\langle q_6, cc, BBZ_0N_0 \rangle \vdash \\
-					&\langle q_7, c, BZ_0N_0 \rangle \vdash 
+					&\langle q_7, c, BZ_0N_0 \rangle \vdash
 					\langle q_7, \epsilon, Z_0N_0 \rangle
 				\end{align*}
-				Por lo que no acepta, pues no vaía la pila.
-        		
+				Por lo que no acepta, pues no vacía la pila.
+
         		Como ningún cómputo acepto la cadena, entonces el autómata la rechaza.
         		}
         	\end{itemize}
